@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- styles -->
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <!-- favicon -->
+    <link rel="shortcut icon" href="favicon.webp" type="image/x-icon">
+    <title>Giriş Yap - Fuezflix</title>
+</head>
+
+<body class="login-page show-sign-in">
+    <div class="login-form sign-in">
+        <div class="left">
+            <form action="#">
+                <div class="form-top">
+                    <div class="logo">
+                        <img src="favicon.webp" alt="">
+                        <p>Fuezflix</p>
+                    </div>
+                    <center>
+                        <h1>Hesabın ile giriş yap.</h1>
+                    </center>
+                </div>
+                <div class="form-center">
+                    <div class="group">
+                        <svg class="icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <g id="SVGRepo_bgCarrier"></g>
+                            <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                            <g id="SVGRepo_iconCarrier">
+                                <g id="style=stroke">
+                                    <g id="email">
+                                        <path id="vector (Stroke)" fill-rule="evenodd" clip-rule="evenodd"
+                                            d="M3.88534 5.2371C3.20538 5.86848 2.75 6.89295 2.75 8.5V15.5C2.75 17.107 3.20538 18.1315 3.88534 18.7629C4.57535 19.4036 5.61497 19.75 7 19.75H17C18.385 19.75 19.4246 19.4036 20.1147 18.7629C20.7946 18.1315 21.25 17.107 21.25 15.5V8.5C21.25 6.89295 20.7946 5.86848 20.1147 5.2371C19.4246 4.59637 18.385 4.25 17 4.25H7C5.61497 4.25 4.57535 4.59637 3.88534 5.2371ZM2.86466 4.1379C3.92465 3.15363 5.38503 2.75 7 2.75H17C18.615 2.75 20.0754 3.15363 21.1353 4.1379C22.2054 5.13152 22.75 6.60705 22.75 8.5V15.5C22.75 17.393 22.2054 18.8685 21.1353 19.8621C20.0754 20.8464 18.615 21.25 17 21.25H7C5.38503 21.25 3.92465 20.8464 2.86466 19.8621C1.79462 18.8685 1.25 17.393 1.25 15.5V8.5C1.25 6.60705 1.79462 5.13152 2.86466 4.1379Z">
+                                        </path>
+                                        <path id="vector (Stroke)_2" fill-rule="evenodd" clip-rule="evenodd"
+                                            d="M19.3633 7.31026C19.6166 7.63802 19.5562 8.10904 19.2285 8.3623L13.6814 12.6486C12.691 13.4138 11.3089 13.4138 10.3185 12.6486L4.77144 8.3623C4.44367 8.10904 4.38328 7.63802 4.63655 7.31026C4.88982 6.98249 5.36083 6.9221 5.6886 7.17537L11.2356 11.4616C11.6858 11.8095 12.3141 11.8095 12.7642 11.4616L18.3113 7.17537C18.6391 6.9221 19.1101 6.98249 19.3633 7.31026Z">
+                                        </path>
+                                    </g>
+                                </g>
+                            </g>
+                        </svg>
+                        <input class="input" id="emailSignIn" type="email" placeholder="Email" required>
+                    </div>
+                    <div class="group">
+                        <svg style="fill: none !important; stroke-width: 2;" stroke="currentColor" stroke-width="1.5"
+                            viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="icon">
+                            <path
+                                d="M16.5 10.5V6.75a4.5 4.5 0 10-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H6.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z"
+                                stroke-linejoin="round" stroke-linecap="round"></path>
+                        </svg>
+                        <input class="input" id="passwordSignIn" type="password" placeholder="Parola" required>
+                    </div>
+                    <button onclick="signInUser()" class="pushable">
+                        <span class="shadow"></span>
+                        <span class="edge"></span>
+                        <span class="front">
+                            Giriş Yap
+                        </span>
+                    </button>
+                    <p>Henüz bir hesabın yok mu? <span onclick="showSignUp()">Kayıt Ol!</span></p>
+                </div>
+            </form>
+        </div>
+        <div class="right">
+            <img src="https://media.idownloadblog.com/wp-content/uploads/2020/01/The-Witcher-iPhone-wallpaper-idownloadblog-Geralt-Yennifer-Ciri.jpg"
+                alt="">
+        </div>
+    </div>
+    <div class="login-form sign-up">
+        <div class="left">
+            <form>
+                <div class="form-top">
+                    <div class="logo">
+                        <img src="favicon.webp" alt="">
+                        <p>Fuezflix</p>
+                    </div>
+                    <center>
+                        <h1>Kaydını Tamamla!</h1>
+                    </center>
+                </div>
+                <div class="form-center">
+                    <div class="group">
+                        <svg style="fill: none !important;" class="icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <g id="SVGRepo_bgCarrier"></g>
+                            <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                            <g id="SVGRepo_iconCarrier">
+                                <path
+                                    d="M5 21C5 17.134 8.13401 14 12 14C15.866 14 19 17.134 19 21M16 7C16 9.20914 14.2091 11 12 11C9.79086 11 8 9.20914 8 7C8 4.79086 9.79086 3 12 3C14.2091 3 16 4.79086 16 7Z"
+                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                </path>
+                            </g>
+                        </svg>
+                        <input class="input" id="nameSignUp" type="text" placeholder="Kullanıcı Adı" required>
+                    </div>
+                    <div class="group">
+                        <svg class="icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <g id="SVGRepo_bgCarrier"></g>
+                            <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                            <g id="SVGRepo_iconCarrier">
+                                <g id="style=stroke">
+                                    <g id="email">
+                                        <path id="vector (Stroke)" fill-rule="evenodd" clip-rule="evenodd"
+                                            d="M3.88534 5.2371C3.20538 5.86848 2.75 6.89295 2.75 8.5V15.5C2.75 17.107 3.20538 18.1315 3.88534 18.7629C4.57535 19.4036 5.61497 19.75 7 19.75H17C18.385 19.75 19.4246 19.4036 20.1147 18.7629C20.7946 18.1315 21.25 17.107 21.25 15.5V8.5C21.25 6.89295 20.7946 5.86848 20.1147 5.2371C19.4246 4.59637 18.385 4.25 17 4.25H7C5.61497 4.25 4.57535 4.59637 3.88534 5.2371ZM2.86466 4.1379C3.92465 3.15363 5.38503 2.75 7 2.75H17C18.615 2.75 20.0754 3.15363 21.1353 4.1379C22.2054 5.13152 22.75 6.60705 22.75 8.5V15.5C22.75 17.393 22.2054 18.8685 21.1353 19.8621C20.0754 20.8464 18.615 21.25 17 21.25H7C5.38503 21.25 3.92465 20.8464 2.86466 19.8621C1.79462 18.8685 1.25 17.393 1.25 15.5V8.5C1.25 6.60705 1.79462 5.13152 2.86466 4.1379Z">
+                                        </path>
+                                        <path id="vector (Stroke)_2" fill-rule="evenodd" clip-rule="evenodd"
+                                            d="M19.3633 7.31026C19.6166 7.63802 19.5562 8.10904 19.2285 8.3623L13.6814 12.6486C12.691 13.4138 11.3089 13.4138 10.3185 12.6486L4.77144 8.3623C4.44367 8.10904 4.38328 7.63802 4.63655 7.31026C4.88982 6.98249 5.36083 6.9221 5.6886 7.17537L11.2356 11.4616C11.6858 11.8095 12.3141 11.8095 12.7642 11.4616L18.3113 7.17537C18.6391 6.9221 19.1101 6.98249 19.3633 7.31026Z">
+                                        </path>
+                                    </g>
+                                </g>
+                            </g>
+                        </svg>
+                        <input class="input" id="emailSignUp" type="email" placeholder="Email" required>
+                    </div>
+                    <div class="group">
+                        <svg style="fill: none !important; stroke-width: 2;" stroke="currentColor" stroke-width="1.5"
+                            viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="icon">
+                            <path
+                                d="M16.5 10.5V6.75a4.5 4.5 0 10-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H6.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z"
+                                stroke-linejoin="round" stroke-linecap="round"></path>
+                        </svg>
+                        <input class="input" id="passwordSignUp" type="password" placeholder="Parola" required>
+                    </div>
+                    <button onclick="saveUserToDB()" class="pushable">
+                        <span class="shadow"></span>
+                        <span class="edge"></span>
+                        <span class="front">
+                            Kayıt Ol
+                        </span>
+                    </button>
+                    <p>Hesabını oluşturdun mu? <span onclick="showSignIn()">Giriş Yap!</span></p>
+                </div>
+            </form>
+        </div>
+        <div class="right">
+            <img src="https://media.idownloadblog.com/wp-content/uploads/2014/12/interstellar-sea-film-space-art-34-iphone6-plus-wallpaper.jpg"
+                alt="">
+        </div>
+    </div>
+
+    <script src="assets/js/login-state.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-auth.js"></script>
+
+    <script src="assets/js/firebase.js"></script>
+</body>
+</html>

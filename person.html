@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- styles -->
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="assets/css/person.css">
+    <!-- favicon -->
+    <link rel="shortcut icon" href="favicon.webp" type="image/x-icon">
+    <!-- icons cdn -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- swiper js -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <title>Fuezflix - Ana Sayfa</title>
+</head>
+
+<body onload="loadPerson()">
+    <!-- page loader-->
+    <div id="pageLoader" class="page-loader">
+        <div class="loader">
+            <svg viewBox="0 0 80 80">
+                <circle id="test" cx="40" cy="40" r="32"></circle>
+            </svg>
+        </div>
+
+        <div class="loader triangle">
+            <svg viewBox="0 0 86 80">
+                <polygon points="43 8 79 72 7 72"></polygon>
+            </svg>
+        </div>
+
+        <div class="loader">
+            <svg viewBox="0 0 80 80">
+                <rect x="8" y="8" width="64" height="64"></rect>
+            </svg>
+        </div>
+    </div>
+    <!-- site -->
+    <div class="site">
+        <div class="site-inside">
+            <!-- header -->
+            <header class="" id="header">
+                <div class="header-left">
+                    <div class="logo">
+                        <img src="logo.png" alt="">
+                    </div>
+                </div>
+                <div class="header-center">
+                    <ul>
+                        <li class="active-nav"><a href="home.html">Ana Sayfa</a>
+                            <div class="bottom-overlay"></div>
+                        </li>
+                        <li><a href="#">Filmler</a>
+                            <div class="bottom-overlay"></div>
+                        </li>
+                        <li><a href="#">Diziler</a>
+                            <div class="bottom-overlay"></div>
+                        </li>
+                        <li><a href="#">Listem</a>
+                            <div class="bottom-overlay"></div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="header-right">
+                    <ul>
+                        <li>
+                            <input onkeydown="searchInput(this)" type="search" placeholder="Search...">
+                        </li>
+                        <li id="searchButton">
+                            <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg">
+                                <g id="SVGRepo_bgCarrier"></g>
+                                <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                                <g id="SVGRepo_iconCarrier">
+                                    <path
+                                        d="m795.904 750.72 124.992 124.928a32 32 0 0 1-45.248 45.248L750.656 795.904a416 416 0 1 1 45.248-45.248zM480 832a352 352 0 1 0 0-704 352 352 0 0 0 0 704z">
+                                    </path>
+                                </g>
+                            </svg>
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                                <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                                <g id="SVGRepo_iconCarrier">
+                                    <path
+                                        d="M13.9998 21H9.99977M17.9998 8C17.9998 6.4087 17.3676 4.88258 16.2424 3.75736C15.1172 2.63214 13.5911 2 11.9998 2C10.4085 2 8.88235 2.63214 7.75713 3.75736C6.63192 4.88258 5.99977 6.4087 5.99977 8C5.99977 11.0902 5.22024 13.206 4.34944 14.6054C3.6149 15.7859 3.24763 16.3761 3.2611 16.5408C3.27601 16.7231 3.31463 16.7926 3.46155 16.9016C3.59423 17 4.19237 17 5.38863 17H18.6109C19.8072 17 20.4053 17 20.538 16.9016C20.6849 16.7926 20.7235 16.7231 20.7384 16.5408C20.7519 16.3761 20.3846 15.7859 19.6501 14.6054C18.7793 13.206 17.9998 11.0902 17.9998 8Z"
+                                        stroke-linecap="round" stroke-linejoin="round"></path>
+                                </g>
+                            </svg>
+                        </li>
+                        <li>
+                            <img id="headerUserProfileImage" alt="">
+                            <div class="profile-div">
+                                <div class="profile-card-inner">
+                                    <img id="headerUserBigProfileImage" src="" alt="">
+                                    <h1 id="headerUserName"></h1>
+                                    <p id="headerUserEmail"></p>
+                                    <div class="buttons">
+                                        <button>Profili Düzenle</button>
+                                        <button onclick="logOutUserAccount()">Çıkış Yap</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </header>
+
+            <!-- site center -->
+            <div class="site-center person-page">
+                <div class="left">
+                    <div class="top-person">
+                        <div class="profile-img">
+                            <img id="profileImagePerson" src="" alt="">
+                        </div>
+                    </div>
+                    <div class="bottom-person">
+                        <div class="title">
+                            <h1>Kişisel Bilgi</h1>
+                        </div>
+                        <div class="info-card">
+                            <span>Bilinen İşi</span>
+                            <p id="departmentPerson"></p>
+                        </div>
+                        <div class="info-card">
+                            <span>Bilinen Filmleri</span>
+                            <p id="knownMoviePerson"></p>
+                        </div>
+                        <div class="info-card">
+                            <span>Cinsiyet</span>
+                            <p id="genderPerson"></p>
+                        </div>
+                        <div class="info-card">
+                            <span>Doğum Günü</span>
+                            <p id="birthdayPerson"></p>
+                        </div>
+                        <div class="info-card">
+                            <span>Doğum Yeri</span>
+                            <p id="placeOfBirthPerson"></p>
+                        </div>
+                        <div id="alsoKnownAsCon" class="info-card">
+                            <span>Ayrıca Şöylede Bilinir</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="right">
+                    <div class="actor-name">
+                        <h1 id="originalNamePerson"></h1>
+                    </div>
+                    <div id="biography" class="biography">
+                        <div class="title-info">
+                            <h1>Biyografi</h1>
+                        </div>
+                        <div class="bg-con">
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime ullam tenetur similique
+                                reiciendis enim fuga, voluptate consectetur fugit assumenda tempora nulla culpa quas
+                                minus blanditiis. Dolorem est quisquam veniam maxime!</p>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa dignissimos dicta libero
+                                eveniet tempora accusamus cum, odit quis minus. Veniam, exercitationem eaque odio dolore
+                                architecto tempore pariatur. Ullam, quam deleniti!</p>
+                            <br>
+                            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Exercitationem magnam velit
+                                quae, sit itaque dignissimos magni, rerum unde assumenda asperiores sequi architecto
+                                veritatis doloribus enim autem molestias perspiciatis. Voluptates, iusto. Lorem, ipsum
+                                dolor sit amet consectetur adipisicing elit. Atque quisquam recusandae consectetur rerum
+                                natus provident dolorem, porro, impedit laudantium aliquam laborum sint, voluptatum
+                                nobis magni esse nam minus ducimus debitis!</p>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt in, a praesentium
+                                commodi natus debitis dolorum nemo non hic aliquid nesciunt obcaecati, magnam sapiente
+                                ex similique ipsa dolore error suscipit! Lorem ipsum dolor sit amet consectetur
+                                adipisicing elit. Harum magnam architecto incidunt at soluta voluptate facere excepturi!
+                                Molestias eaque ipsa quae voluptate consequuntur porro provident explicabo animi,
+                                ducimus ad soluta? Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos, quo
+                                laboriosam illum atque quasi, inventore voluptas fugiat dolore natus dignissimos a est
+                                iusto quis iure! Exercitationem explicabo esse ratione incidunt.</p>
+                            <br>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa dignissimos dicta libero
+                                eveniet tempora accusamus cum, odit quis minus. Veniam, exercitationem eaque odio dolore
+                                architecto tempore pariatur. Ullam, quam deleniti!</p>
+                            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Exercitationem magnam velit
+                                quae, sit itaque dignissimos magni, rerum unde assumenda asperiores sequi architecto
+                                veritatis doloribus enim autem molestias perspiciatis. Voluptates, iusto. Lorem, ipsum
+                                dolor sit amet consectetur adipisicing elit. Atque quisquam recusandae consectetur rerum
+                                natus provident dolorem, porro, impedit laudantium aliquam laborum sint, voluptatum
+                                nobis magni esse nam minus ducimus debitis!</p>
+                            <br>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt in, a praesentium
+                                commodi natus debitis dolorum nemo non hic aliquid nesciunt obcaecati, magnam sapiente
+                                ex similique ipsa dolore error suscipit! Lorem ipsum dolor sit amet consectetur
+                                adipisicing elit. Harum magnam architecto incidunt at soluta voluptate facere excepturi!
+                                Molestias eaque ipsa quae voluptate consequuntur porro provident explicabo animi,
+                                ducimus ad soluta? Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos, quo
+                                laboriosam illum atque quasi, inventore voluptas fugiat dolore natus dignissimos a est
+                                iusto quis iure! Exercitationem explicabo esse ratione incidunt.</p>
+                            <div class="show-more-button">
+                                <p onclick="showAll()">Daha Fazla <i class="fa-solid fa-down-long"></i></p>
+                            </div>
+                            <div class="hide-more-button">
+                                <p onclick="hideAll()">Daha Az <i class="fa-solid fa-up-long"></i></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="known-for">
+                        <div class="title-info">
+                            <h1>Popüler İşleri (TOP 10)</h1>
+                        </div>
+                        <div class="swiper known-for-slide">
+                            <div id="knownJobsCon" class="known-for-con swiper-wrapper">
+                                <!-- <div class="known-for-card swiper-slide">
+                                    <div class="banner">
+                                        <img src=""
+                                            alt="">
+                                    </div>
+                                    <div class="name">
+                                        <span></span>
+                                    </div>
+                                </div> -->
+                            </div>
+                            <div class="swiper-pagination"></div>
+                        </div>
+                    </div>
+                    <div class="acting">
+                        <div class="title-info">
+                            <h1>Oyunculuk</h1>
+                        </div>
+                        <div class="acting-con">
+                            <div class="container">
+                                <div class="wrapper">
+                                    <h2>Zaman Çizelgesi</h2>
+                                    <ul id="castUl" class="sessions">
+                                        <!-- <li class="">
+                                            <div class="infos-con">
+                                                <div class="left">
+                                                    <img src=""
+                                                        alt="">
+                                                </div>
+                                                <div class="right">
+                                                    <div class="right-inside">
+                                                        <h1></h1>
+                                                        <p></p>
+                                                        <button>
+                                                            <svg viewBox="0 0 24 24" fill="none"
+                                                                xmlns="http://www.w3.org/2000/svg">
+                                                                <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                                                                <g id="SVGRepo_tracerCarrier" stroke-linecap="round"
+                                                                    stroke-linejoin="round"></g>
+                                                                <g id="SVGRepo_iconCarrier">
+                                                                    <path
+                                                                        d="M15.75 3.25H8.24999C7.52064 3.25 6.82117 3.53973 6.30545 4.05546C5.78972 4.57118 5.49999 5.27065 5.49999 6V20C5.49898 20.1377 5.53587 20.2729 5.60662 20.391C5.67738 20.5091 5.77926 20.6054 5.90112 20.6695C6.02298 20.7335 6.16012 20.7627 6.2975 20.754C6.43488 20.7453 6.56721 20.6989 6.67999 20.62L12 16.91L17.32 20.62C17.4467 20.7063 17.5967 20.7516 17.75 20.75C17.871 20.7486 17.9903 20.7213 18.1 20.67C18.2203 20.6041 18.3208 20.5072 18.3911 20.3894C18.4615 20.2716 18.499 20.1372 18.5 20V6C18.5 5.27065 18.2103 4.57118 17.6945 4.05546C17.1788 3.53973 16.4793 3.25 15.75 3.25Z">
+                                                                    </path>
+                                                                </g>
+                                                            </svg>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="time"></div>
+                                            <p><strong style="color: #a4a4a4;"></strong> J. Robert Oppenheimer
+                                            </p>
+                                        </li> -->
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div style="width: 100%; height: 30px; margin-top: 100px;" class="test">
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        function showAll() {
+            let biography = document.getElementById("biography")
+            biography.classList.add("show-all")
+        }
+        function hideAll() {
+            let biography = document.getElementById("biography")
+            biography.classList.remove("show-all")
+        }
+    </script>
+    <!-- scripts -->
+    <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-auth.js"></script>
+
+    <script src="assets/js/firebase.js"></script>
+    <script src="assets/js/app.js"></script>
+    <!-- swiper js script-->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <script>
+        var swiper = new Swiper(".known-for-slide", {
+            slidesPerView: 'auto',
+            spaceBetween: 30,
+            mousewheel: true,
+            pagination: {
+                el: ".swiper-pagination",
+                type: "progressbar",
+            },
+        });
+    </script>
+</body>
+
+</html>

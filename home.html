@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- styles -->
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <!-- favicon -->
+    <link rel="shortcut icon" href="favicon.webp" type="image/x-icon">
+    <!-- icons cdn -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- swiper js -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <title>Fuezflix - Ana Sayfa</title>
+</head>
+
+<body onload="loadHomePage()">
+    <!-- page loader-->
+    <div id="pageLoader" class="page-loader">
+        <div class="loader">
+            <svg viewBox="0 0 80 80">
+                <circle id="test" cx="40" cy="40" r="32"></circle>
+            </svg>
+        </div>
+
+        <div class="loader triangle">
+            <svg viewBox="0 0 86 80">
+                <polygon points="43 8 79 72 7 72"></polygon>
+            </svg>
+        </div>
+
+        <div class="loader">
+            <svg viewBox="0 0 80 80">
+                <rect x="8" y="8" width="64" height="64"></rect>
+            </svg>
+        </div>
+    </div>
+    <!-- site -->
+    <div class="site">
+        <div class="site-inside">
+            <!-- header -->
+            <header class="" id="header">
+                <div class="header-left">
+                    <div class="logo">
+                        <img src="logo.png" alt="">
+                    </div>
+                </div>
+                <div class="header-center">
+                    <ul>
+                        <li class="active-nav"><a href="#">Ana Sayfa</a>
+                            <div class="bottom-overlay"></div>
+                        </li>
+                        <li><a href="all-movie.html">Filmler</a>
+                            <div class="bottom-overlay"></div>
+                        </li>
+                        <li><a href="#">Diziler</a>
+                            <div class="bottom-overlay"></div>
+                        </li>
+                        <li><a href="#">Listem</a>
+                            <div class="bottom-overlay"></div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="header-right">
+                    <ul>
+                        <li>
+                            <input onkeydown="searchInput(this)" type="search" placeholder="Search...">
+                        </li>
+                        <li id="searchButton">
+                            <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg">
+                                <g id="SVGRepo_bgCarrier"></g>
+                                <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                                <g id="SVGRepo_iconCarrier">
+                                    <path
+                                        d="m795.904 750.72 124.992 124.928a32 32 0 0 1-45.248 45.248L750.656 795.904a416 416 0 1 1 45.248-45.248zM480 832a352 352 0 1 0 0-704 352 352 0 0 0 0 704z">
+                                    </path>
+                                </g>
+                            </svg>
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                                <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                                <g id="SVGRepo_iconCarrier">
+                                    <path
+                                        d="M13.9998 21H9.99977M17.9998 8C17.9998 6.4087 17.3676 4.88258 16.2424 3.75736C15.1172 2.63214 13.5911 2 11.9998 2C10.4085 2 8.88235 2.63214 7.75713 3.75736C6.63192 4.88258 5.99977 6.4087 5.99977 8C5.99977 11.0902 5.22024 13.206 4.34944 14.6054C3.6149 15.7859 3.24763 16.3761 3.2611 16.5408C3.27601 16.7231 3.31463 16.7926 3.46155 16.9016C3.59423 17 4.19237 17 5.38863 17H18.6109C19.8072 17 20.4053 17 20.538 16.9016C20.6849 16.7926 20.7235 16.7231 20.7384 16.5408C20.7519 16.3761 20.3846 15.7859 19.6501 14.6054C18.7793 13.206 17.9998 11.0902 17.9998 8Z"
+                                        stroke-linecap="round" stroke-linejoin="round"></path>
+                                </g>
+                            </svg>
+                        </li>
+                        <li>
+                            <img id="headerUserProfileImage" alt="">
+                            <div class="profile-div">
+                                <div class="profile-card-inner">
+                                    <img id="headerUserBigProfileImage" src="" alt="">
+                                    <h1 id="headerUserName"></h1>
+                                    <p id="headerUserEmail"></p>
+                                    <div class="buttons">
+                                        <button>Profili Düzenle</button>
+                                        <button onclick="logOutUserAccount()">Çıkış Yap</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </header>
+            <!-- site center -->
+            <div class="site-center">
+                <div class="swiper mySwiper">
+                    <div class="swiper-wrapper">
+                        <div class="banner-img swiper-slide">
+                            <div class="big-card-con">
+                                <img src="https://uhdwallpapers.org/uploads/converted/23/08/28/oppenheimer-1920x1080_894488-mm-90.jpg" alt="">
+                                <div class="card-info">
+                                    <div class="top-info">
+                                        <p><i class="fa-solid fa-star"></i> 7,5</p>
+                                        <p>2023</p>
+                                        <p>3s 1dk</p> 
+                                    </div>
+                                    <div class="center-info">
+                                        <h1>Oppenheimer</h1>
+                                        <p>Oppenheimer, II. Dünya Savaşı döneminde nükleer silah üretmek için başlatılan
+                                            Manhattan Projesi kapsamında ilk atom bombasını icat eden Los Alamos
+                                            Laboratuvarı direktörü, teorik fizikçi J. Robert Oppenheimer’a odaklanıyor.
+                                        </p>
+                                    </div>
+                                    <div class="bottom-info">
+                                        <button onclick="goMoviePage(this, 872585)"><i class="fa-solid fa-play"></i>IZLE</button>
+                                        <button><i class="fa-solid fa-plus"></i>LISTEYE EKLE</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="shadow"></div>
+                        </div>
+                        <div class="banner-img swiper-slide">
+                            <div class="big-card-con">
+                                <img src="https://m.media-amazon.com/images/M/MV5BMTAyOGNkYTAtZWQyNS00YWYxLTk5YjktODY1OGI4NjYwYTZjXkEyXkFqcGdeQXVyMTUzMTg2ODkz._V1_.jpg"
+                                    alt="">
+                                <div class="card-info">
+                                    <div class="top-info">
+                                        <p><i class="fa-solid fa-star"></i> 7,5</p>
+                                        <p>2019</p>
+                                        <p>3 Sezon</p>
+                                    </div>
+                                    <div class="center-info">
+                                        <h1>The Witcher</h1>
+                                        <p>Yalnız bir canavar avcısı olan Rivialı Geralt, insanların yaratıklardan bile
+                                            daha kötü olabildiği bir dünyada kendine yer edinmeye çalışmaktadır. Ancak
+                                            kader onu güçlü bir büyücü ve tehlikeli bir sırra sahip genç bir prensesle
+                                            karşılaştırır. Üçlü, artık her geçen gün daha da vahşi hale gelen bu kıtada
+                                            birlikte yürümeyi öğrenmelidir.</p>
+                                    </div>
+                                    <div class="bottom-info">
+                                        <button onclick="goMoviePage(this, 71912)"><i class="fa-solid fa-play"></i>IZLE</button>
+                                        <button><i class="fa-solid fa-plus"></i>LISTEYE EKLE</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="shadow"></div>
+                        </div>
+                        <div class="banner-img swiper-slide">
+                            <div class="big-card-con">
+                                <img src="assets/image/center-big-image.jpg" alt="">
+                                <div class="card-info">
+                                    <div class="top-info">
+                                        <p><i class="fa-solid fa-star"></i> 7,5</p>
+                                        <p>2018</p>
+                                        <p>3 Sezon</p>
+                                    </div>
+                                    <div class="center-info">
+                                        <h1>Lost In Space</h1>
+                                        <p>Yabancı bir gezegene zorunlu iniş yapan Robinsonlar tüm engellere rağmen
+                                            hayatta kalmak ve gezegenden kaçmak için mücadele eder. Ama çevreleri gizli
+                                            tehlikelerle doludur.</p>
+                                    </div>
+                                    <div class="bottom-info">
+                                        <button onclick="goMoviePage(this, 75758)"><i class="fa-solid fa-play"></i>IZLE</button>
+                                        <button><i class="fa-solid fa-plus"></i>LISTEYE EKLE</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="shadow"></div>
+                        </div>
+                    </div>
+                    <div class="autoplay-progress">
+                        <svg viewBox="0 0 48 48">
+                            <circle cx="24" cy="24" r="20"></circle>
+                        </svg>
+                        <span></span>
+                    </div>
+                </div>
+                <div class="editor-choice">
+                    <div class="title">
+                        <h1>Editörün Seçimleri</h1>
+                    </div>
+                    <div class="editor-con swiper swiperEditor">
+                        <div id="editorCon" class="swiper-wrapper">
+                            <!-- <div class="editor-card swiper-slide">
+                                <img src="https://occ-0-3175-2705.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABRV8z15a6DvwHJPDsBIcNa8ecg2b_NQgneMzPEPIWcB05E1ylv9cRL6KA1cj8mIStqZf6j-X6TE-CguTRZ2HUv_ZxwNfoYAsP4_1w0di8X_yj3VpA1K6XOgy5TXfF2r07SOBJYu4OUsiKRLqrJe1ZuI58AzPM0JDicF2BAg3Xa46cay1i0ats1ZKJdW8MLHXcPZkZ4jtjlUgoBXIym6-ZpjUX9reuwy9yZAkVhhXDELOiAgFBnax_ECm6d-mGkSLEMHy0dm05q9Yy5WmFWeMLjb5YhTaA8juX9jiT1Z2wxwvm4G3ZAvOSjdzB-GyGh7OYap5sa-xsyWVr2ey45D-j21d-rR3j5IFMsk9yYIGBFW3eA.jpg?r=0b4"
+                                    alt="">
+                            </div> -->
+                        </div>
+                    </div>
+                </div>
+                <div class="new-episode">
+                    <div class="title">
+                        <h1>Güncel Bölümler</h1>
+                    </div>
+                    <div class="ne-con">
+                        <div id="neCon" class="con-group">
+                            <div class="ne-card">
+                                <div class="banner">
+                                    <img src="https://occ-0-3175-2705.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABRV8z15a6DvwHJPDsBIcNa8ecg2b_NQgneMzPEPIWcB05E1ylv9cRL6KA1cj8mIStqZf6j-X6TE-CguTRZ2HUv_ZxwNfoYAsP4_1w0di8X_yj3VpA1K6XOgy5TXfF2r07SOBJYu4OUsiKRLqrJe1ZuI58AzPM0JDicF2BAg3Xa46cay1i0ats1ZKJdW8MLHXcPZkZ4jtjlUgoBXIym6-ZpjUX9reuwy9yZAkVhhXDELOiAgFBnax_ECm6d-mGkSLEMHy0dm05q9Yy5WmFWeMLjb5YhTaA8juX9jiT1Z2wxwvm4G3ZAvOSjdzB-GyGh7OYap5sa-xsyWVr2ey45D-j21d-rR3j5IFMsk9yYIGBFW3eA.jpg?r=0b4"
+                                        alt="">
+                                </div>
+                                <div class="infos">
+                                    <h1>Sweet Home</h1>
+                                    <p>2. Sezon 1. Bolum</p>
+                                    <p>2 gun once</p>
+                                </div>
+                            </div>
+                            <div class="ne-card">
+                                <div class="banner">
+                                    <img src="https://occ-0-3175-2705.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABRV8z15a6DvwHJPDsBIcNa8ecg2b_NQgneMzPEPIWcB05E1ylv9cRL6KA1cj8mIStqZf6j-X6TE-CguTRZ2HUv_ZxwNfoYAsP4_1w0di8X_yj3VpA1K6XOgy5TXfF2r07SOBJYu4OUsiKRLqrJe1ZuI58AzPM0JDicF2BAg3Xa46cay1i0ats1ZKJdW8MLHXcPZkZ4jtjlUgoBXIym6-ZpjUX9reuwy9yZAkVhhXDELOiAgFBnax_ECm6d-mGkSLEMHy0dm05q9Yy5WmFWeMLjb5YhTaA8juX9jiT1Z2wxwvm4G3ZAvOSjdzB-GyGh7OYap5sa-xsyWVr2ey45D-j21d-rR3j5IFMsk9yYIGBFW3eA.jpg?r=0b4"
+                                        alt="">
+                                </div>
+                                <div class="infos">
+                                    <h1>Sweet Home</h1>
+                                    <p>2. Sezon 1. Bolum</p>
+                                    <p>2 gun once</p>
+                                </div>
+                            </div>
+                            <div class="ne-card">
+                                <div class="banner">
+                                    <img src="https://occ-0-3175-2705.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABRV8z15a6DvwHJPDsBIcNa8ecg2b_NQgneMzPEPIWcB05E1ylv9cRL6KA1cj8mIStqZf6j-X6TE-CguTRZ2HUv_ZxwNfoYAsP4_1w0di8X_yj3VpA1K6XOgy5TXfF2r07SOBJYu4OUsiKRLqrJe1ZuI58AzPM0JDicF2BAg3Xa46cay1i0ats1ZKJdW8MLHXcPZkZ4jtjlUgoBXIym6-ZpjUX9reuwy9yZAkVhhXDELOiAgFBnax_ECm6d-mGkSLEMHy0dm05q9Yy5WmFWeMLjb5YhTaA8juX9jiT1Z2wxwvm4G3ZAvOSjdzB-GyGh7OYap5sa-xsyWVr2ey45D-j21d-rR3j5IFMsk9yYIGBFW3eA.jpg?r=0b4"
+                                        alt="">
+                                </div>
+                                <div class="infos">
+                                    <h1>Sweet Home</h1>
+                                    <p>2. Sezon 1. Bolum</p>
+                                    <p>2 gun once</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="con-group">
+                            <div class="ne-card">
+                                <div class="banner">
+                                    <img src="https://occ-0-3175-2705.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABRV8z15a6DvwHJPDsBIcNa8ecg2b_NQgneMzPEPIWcB05E1ylv9cRL6KA1cj8mIStqZf6j-X6TE-CguTRZ2HUv_ZxwNfoYAsP4_1w0di8X_yj3VpA1K6XOgy5TXfF2r07SOBJYu4OUsiKRLqrJe1ZuI58AzPM0JDicF2BAg3Xa46cay1i0ats1ZKJdW8MLHXcPZkZ4jtjlUgoBXIym6-ZpjUX9reuwy9yZAkVhhXDELOiAgFBnax_ECm6d-mGkSLEMHy0dm05q9Yy5WmFWeMLjb5YhTaA8juX9jiT1Z2wxwvm4G3ZAvOSjdzB-GyGh7OYap5sa-xsyWVr2ey45D-j21d-rR3j5IFMsk9yYIGBFW3eA.jpg?r=0b4"
+                                        alt="">
+                                </div>
+                                <div class="infos">
+                                    <h1>Sweet Home</h1>
+                                    <p>2. Sezon 1. Bolum</p>
+                                    <p>2 gun once</p>
+                                </div>
+                            </div>
+                            <div class="ne-card">
+                                <div class="banner">
+                                    <img src="https://occ-0-3175-2705.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABRV8z15a6DvwHJPDsBIcNa8ecg2b_NQgneMzPEPIWcB05E1ylv9cRL6KA1cj8mIStqZf6j-X6TE-CguTRZ2HUv_ZxwNfoYAsP4_1w0di8X_yj3VpA1K6XOgy5TXfF2r07SOBJYu4OUsiKRLqrJe1ZuI58AzPM0JDicF2BAg3Xa46cay1i0ats1ZKJdW8MLHXcPZkZ4jtjlUgoBXIym6-ZpjUX9reuwy9yZAkVhhXDELOiAgFBnax_ECm6d-mGkSLEMHy0dm05q9Yy5WmFWeMLjb5YhTaA8juX9jiT1Z2wxwvm4G3ZAvOSjdzB-GyGh7OYap5sa-xsyWVr2ey45D-j21d-rR3j5IFMsk9yYIGBFW3eA.jpg?r=0b4"
+                                        alt="">
+                                </div>
+                                <div class="infos">
+                                    <h1>Sweet Home</h1>
+                                    <p>2. Sezon 1. Bolum</p>
+                                    <p>2 gun once</p>
+                                </div>
+                            </div>
+                            <div class="ne-card">
+                                <div class="banner">
+                                    <img src="https://occ-0-3175-2705.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABRV8z15a6DvwHJPDsBIcNa8ecg2b_NQgneMzPEPIWcB05E1ylv9cRL6KA1cj8mIStqZf6j-X6TE-CguTRZ2HUv_ZxwNfoYAsP4_1w0di8X_yj3VpA1K6XOgy5TXfF2r07SOBJYu4OUsiKRLqrJe1ZuI58AzPM0JDicF2BAg3Xa46cay1i0ats1ZKJdW8MLHXcPZkZ4jtjlUgoBXIym6-ZpjUX9reuwy9yZAkVhhXDELOiAgFBnax_ECm6d-mGkSLEMHy0dm05q9Yy5WmFWeMLjb5YhTaA8juX9jiT1Z2wxwvm4G3ZAvOSjdzB-GyGh7OYap5sa-xsyWVr2ey45D-j21d-rR3j5IFMsk9yYIGBFW3eA.jpg?r=0b4"
+                                        alt="">
+                                </div>
+                                <div class="infos">
+                                    <h1>Sweet Home</h1>
+                                    <p>2. Sezon 1. Bolum</p>
+                                    <p>2 gun once</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="con-group">
+                            <div class="ne-card">
+                                <div class="banner">
+                                    <img src="https://occ-0-3175-2705.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABRV8z15a6DvwHJPDsBIcNa8ecg2b_NQgneMzPEPIWcB05E1ylv9cRL6KA1cj8mIStqZf6j-X6TE-CguTRZ2HUv_ZxwNfoYAsP4_1w0di8X_yj3VpA1K6XOgy5TXfF2r07SOBJYu4OUsiKRLqrJe1ZuI58AzPM0JDicF2BAg3Xa46cay1i0ats1ZKJdW8MLHXcPZkZ4jtjlUgoBXIym6-ZpjUX9reuwy9yZAkVhhXDELOiAgFBnax_ECm6d-mGkSLEMHy0dm05q9Yy5WmFWeMLjb5YhTaA8juX9jiT1Z2wxwvm4G3ZAvOSjdzB-GyGh7OYap5sa-xsyWVr2ey45D-j21d-rR3j5IFMsk9yYIGBFW3eA.jpg?r=0b4"
+                                        alt="">
+                                </div>
+                                <div class="infos">
+                                    <h1>Sweet Home</h1>
+                                    <p>2. Sezon 1. Bolum</p>
+                                    <p>2 gun once</p>
+                                </div>
+                            </div>
+                            <div class="ne-card">
+                                <div class="banner">
+                                    <img src="https://occ-0-3175-2705.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABRV8z15a6DvwHJPDsBIcNa8ecg2b_NQgneMzPEPIWcB05E1ylv9cRL6KA1cj8mIStqZf6j-X6TE-CguTRZ2HUv_ZxwNfoYAsP4_1w0di8X_yj3VpA1K6XOgy5TXfF2r07SOBJYu4OUsiKRLqrJe1ZuI58AzPM0JDicF2BAg3Xa46cay1i0ats1ZKJdW8MLHXcPZkZ4jtjlUgoBXIym6-ZpjUX9reuwy9yZAkVhhXDELOiAgFBnax_ECm6d-mGkSLEMHy0dm05q9Yy5WmFWeMLjb5YhTaA8juX9jiT1Z2wxwvm4G3ZAvOSjdzB-GyGh7OYap5sa-xsyWVr2ey45D-j21d-rR3j5IFMsk9yYIGBFW3eA.jpg?r=0b4"
+                                        alt="">
+                                </div>
+                                <div class="infos">
+                                    <h1>Sweet Home</h1>
+                                    <p>2. Sezon 1. Bolum</p>
+                                    <p>2 gun once</p>
+                                </div>
+                            </div>
+                            <div class="ne-card">
+                                <div class="banner">
+                                    <img src="https://occ-0-3175-2705.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABRV8z15a6DvwHJPDsBIcNa8ecg2b_NQgneMzPEPIWcB05E1ylv9cRL6KA1cj8mIStqZf6j-X6TE-CguTRZ2HUv_ZxwNfoYAsP4_1w0di8X_yj3VpA1K6XOgy5TXfF2r07SOBJYu4OUsiKRLqrJe1ZuI58AzPM0JDicF2BAg3Xa46cay1i0ats1ZKJdW8MLHXcPZkZ4jtjlUgoBXIym6-ZpjUX9reuwy9yZAkVhhXDELOiAgFBnax_ECm6d-mGkSLEMHy0dm05q9Yy5WmFWeMLjb5YhTaA8juX9jiT1Z2wxwvm4G3ZAvOSjdzB-GyGh7OYap5sa-xsyWVr2ey45D-j21d-rR3j5IFMsk9yYIGBFW3eA.jpg?r=0b4"
+                                        alt="">
+                                </div>
+                                <div class="infos">
+                                    <h1>Sweet Home</h1>
+                                    <p>2. Sezon 1. Bolum</p>
+                                    <p>2 gun once</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="con-group">
+                            <div class="ne-card">
+                                <div class="banner">
+                                    <img src="https://occ-0-3175-2705.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABRV8z15a6DvwHJPDsBIcNa8ecg2b_NQgneMzPEPIWcB05E1ylv9cRL6KA1cj8mIStqZf6j-X6TE-CguTRZ2HUv_ZxwNfoYAsP4_1w0di8X_yj3VpA1K6XOgy5TXfF2r07SOBJYu4OUsiKRLqrJe1ZuI58AzPM0JDicF2BAg3Xa46cay1i0ats1ZKJdW8MLHXcPZkZ4jtjlUgoBXIym6-ZpjUX9reuwy9yZAkVhhXDELOiAgFBnax_ECm6d-mGkSLEMHy0dm05q9Yy5WmFWeMLjb5YhTaA8juX9jiT1Z2wxwvm4G3ZAvOSjdzB-GyGh7OYap5sa-xsyWVr2ey45D-j21d-rR3j5IFMsk9yYIGBFW3eA.jpg?r=0b4"
+                                        alt="">
+                                </div>
+                                <div class="infos">
+                                    <h1>Sweet Home</h1>
+                                    <p>2. Sezon 1. Bolum</p>
+                                    <p>2 gun once</p>
+                                </div>
+                            </div>
+                            <div class="ne-card">
+                                <div class="banner">
+                                    <img src="https://occ-0-3175-2705.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABRV8z15a6DvwHJPDsBIcNa8ecg2b_NQgneMzPEPIWcB05E1ylv9cRL6KA1cj8mIStqZf6j-X6TE-CguTRZ2HUv_ZxwNfoYAsP4_1w0di8X_yj3VpA1K6XOgy5TXfF2r07SOBJYu4OUsiKRLqrJe1ZuI58AzPM0JDicF2BAg3Xa46cay1i0ats1ZKJdW8MLHXcPZkZ4jtjlUgoBXIym6-ZpjUX9reuwy9yZAkVhhXDELOiAgFBnax_ECm6d-mGkSLEMHy0dm05q9Yy5WmFWeMLjb5YhTaA8juX9jiT1Z2wxwvm4G3ZAvOSjdzB-GyGh7OYap5sa-xsyWVr2ey45D-j21d-rR3j5IFMsk9yYIGBFW3eA.jpg?r=0b4"
+                                        alt="">
+                                </div>
+                                <div class="infos">
+                                    <h1>Sweet Home</h1>
+                                    <p>2. Sezon 1. Bolum</p>
+                                    <p>2 gun once</p>
+                                </div>
+                            </div>
+                            <div class="ne-card">
+                                <div class="banner">
+                                    <img src="https://occ-0-3175-2705.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABRV8z15a6DvwHJPDsBIcNa8ecg2b_NQgneMzPEPIWcB05E1ylv9cRL6KA1cj8mIStqZf6j-X6TE-CguTRZ2HUv_ZxwNfoYAsP4_1w0di8X_yj3VpA1K6XOgy5TXfF2r07SOBJYu4OUsiKRLqrJe1ZuI58AzPM0JDicF2BAg3Xa46cay1i0ats1ZKJdW8MLHXcPZkZ4jtjlUgoBXIym6-ZpjUX9reuwy9yZAkVhhXDELOiAgFBnax_ECm6d-mGkSLEMHy0dm05q9Yy5WmFWeMLjb5YhTaA8juX9jiT1Z2wxwvm4G3ZAvOSjdzB-GyGh7OYap5sa-xsyWVr2ey45D-j21d-rR3j5IFMsk9yYIGBFW3eA.jpg?r=0b4"
+                                        alt="">
+                                </div>
+                                <div class="infos">
+                                    <h1>Sweet Home</h1>
+                                    <p>2. Sezon 1. Bolum</p>
+                                    <p>2 gun once</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="movies-con">
+                    <div class="title">
+                        <h1>Trend Filmler <span>(Bu Hafta)</span></h1>
+                    </div>
+                    <div class="movies-container swiper moviesSlider">
+                        <div id="trendWeekCon" class="swiper-wrapper">
+                            <!-- <div class="movies-card swiper-slide">
+                                <div class="left">
+                                    <div class="number-text">
+                                        1
+                                    </div>
+                                </div>
+                                <div class="right">
+                                    <img src="https://tr.web.img3.acsta.net/pictures/bzp/01/58608.jpg" alt="">
+                                </div>
+                            </div> -->
+                        </div>
+                        <div class="swiper-pagination"></div>
+                    </div>
+                    <div id="movieConOther" class="movies-con-other">
+                        <!-- <div class="movies-card-o">
+                            <img src="https://occ-0-3175-2705.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABRV8z15a6DvwHJPDsBIcNa8ecg2b_NQgneMzPEPIWcB05E1ylv9cRL6KA1cj8mIStqZf6j-X6TE-CguTRZ2HUv_ZxwNfoYAsP4_1w0di8X_yj3VpA1K6XOgy5TXfF2r07SOBJYu4OUsiKRLqrJe1ZuI58AzPM0JDicF2BAg3Xa46cay1i0ats1ZKJdW8MLHXcPZkZ4jtjlUgoBXIym6-ZpjUX9reuwy9yZAkVhhXDELOiAgFBnax_ECm6d-mGkSLEMHy0dm05q9Yy5WmFWeMLjb5YhTaA8juX9jiT1Z2wxwvm4G3ZAvOSjdzB-GyGh7OYap5sa-xsyWVr2ey45D-j21d-rR3j5IFMsk9yYIGBFW3eA.jpg?r=0b4"
+                                alt="">
+                            <div class="movie-info">
+                                <div class="video">
+                                    <iframe src="https://www.youtube.com/embed/7rI56NmD33Y"
+                                        title="Sweet Home | Official Trailer | Netflix" frameborder="0"
+                                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                        allowfullscreen></iframe>
+                                </div>
+                                <div class="movie-name">
+                                    <h1>Sweet Home</h1>
+                                </div>
+                                <div class="movie-description">
+                                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ad in deleniti ducimus
+                                        voluptas, ipsam provident eveniet facere? Natus tenetur atque sit illo, pariatur
+                                        in. Provident eligendi aperiam quisquam id adipisci?</p>
+                                </div>
+                                <center>
+                                    <div class="bottom-info">
+                                        <button><i class="fa-solid fa-play"></i>IZLE</button>
+                                        <button><i class="fa-solid fa-plus"></i>LISTEYE EKLE</button>
+                                    </div>
+                                </center>
+                            </div>
+                        </div> -->
+                    </div>
+                </div>
+                <div class="movies-con series">
+                    <div class="title">
+                        <h1>Trend Diziler</h1>
+                    </div>
+                    <div class="movies-container swiper moviesSlider">
+                        <div id="trendSeriesCon" class="swiper-wrapper">
+                            <!-- <div class="movies-card swiper-slide">
+                                <div class="left">
+                                    <div class="number-text">
+                                        1
+                                    </div>
+                                </div>
+                                <div class="right">
+                                    <img src="https://tr.web.img3.acsta.net/pictures/bzp/01/58608.jpg" alt="">
+                                </div>
+                            </div> -->
+                        </div>
+                        <div class="swiper-pagination"></div>
+                    </div>
+                    <div id="seriesConOther" class="movies-con-other">
+
+                    </div>
+                    <div style="margin-top: 100px; width: 100%; height: 200px;" class="test">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- scripts -->
+    <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-auth.js"></script>
+
+    <script src="assets/js/firebase.js"></script>
+    <script src="assets/js/app.js"></script>
+    <!-- swiper js script-->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+</body>
+<script>
+    const progressCircle = document.querySelector(".autoplay-progress svg");
+    const progressContent = document.querySelector(".autoplay-progress span");
+
+    const swiper = new Swiper('.moviesSlider', {
+        slidesPerView: "auto",
+        mousewheel: true,
+        // If we need pagination
+        pagination: {
+            el: '.swiper-pagination',
+        },
+    });
+
+    const swiperEditor = new Swiper('.swiperEditor', {
+        slidesPerView: "auto",
+        mousewheel: true,
+        spaceBetween: 35,
+        // If we need pagination
+        pagination: {
+            el: '.swiper-pagination',
+        },
+    });
+
+    var swiperBig = new Swiper(".mySwiper", {
+        slidesPerView: "auto",
+        direction: "vertical",
+        autoplay: {
+            delay: 3000,
+
+            pauseOnMouseEnter: true,
+            disableOnInteraction: false
+        },
+        on: {
+            autoplayTimeLeft(s, time, progress) {
+                progressCircle.style.setProperty("--progress", 1 - progress);
+                progressContent.textContent = `${Math.ceil(time / 1000)}s`;
+            }
+        }
+    });
+</script>
+
+</html>

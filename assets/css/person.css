@@ -1,0 +1,378 @@
+:root {
+    --theme-red: #d71f25;
+    --theme-light-red: #f8606530;
+    --theme-light-green: #60f88930;
+    --theme-gray: #8a8a8a;
+    --theme-body-color: #1a191e;
+    --text-sm: 0.85rem;
+    --text-md: 1rem;
+    --text-lg: 1.25rem;
+    --text-xl: 1.50rem;
+
+    --dark-background: #363636;
+    --card-box-shadow: 0px 4px 15px 1px var(--dark-background);
+}
+
+.title-info h1 {
+    color: white;
+    font-size: 22px;
+}
+
+.person-page .left {
+    width: 30%;
+}
+
+.person-page .left .top-person .profile-img img {
+    width: 300px;
+    border-radius: 20px;
+}
+
+.person-page .left .bottom-person {
+    margin-top: 30px;
+}
+
+.person-page .left .bottom-person .title h1 {
+    font-size: 25px;
+}
+
+.person-page .left .bottom-person .info-card {
+    margin-top: 30px;
+    width: 50%;
+    background-color: var(--dark-background);
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.person-page .left .bottom-person .info-card span {
+    font-size: 16px;
+    font-weight: 600;
+    color: white;
+}
+
+.person-page .left .bottom-person .info-card p {
+    color: var(--theme-gray);
+    font-weight: 500;
+    font-size: 14px;
+    margin-top: 5px;
+}
+
+.person-page .right {
+    width: 65%;
+    height: 200px;
+}
+
+.person-page .right .actor-name h1 {
+    color: white;
+    font-size: 40px;
+}
+
+.person-page .right .biography {
+    margin-top: 30px;
+}
+
+.person-page .right .biography .title-info {
+    margin-bottom: 20px;
+}
+
+.person-page .right .biography.show-all .bg-con {
+    height: min-content;
+}
+
+.person-page .right .biography.show-all .bg-con {
+    padding-bottom: 30px;
+}
+
+.person-page .right .biography.show-all .bg-con .show-more-button {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.person-page .right .biography.show-all .bg-con .hide-more-button {
+    opacity: 1;
+    visibility: visible;
+}
+
+.person-page .right .biography .bg-con {
+    height: 300px;
+    overflow: hidden;
+    position: relative;
+    transition: .3s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.person-page .right .biography .bg-con p {
+    color: var(--theme-gray);
+    font-size: 14px;
+}
+
+.person-page .right .biography .bg-con .hide-more-button {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.person-page .right .biography .bg-con .show-more-button,
+.person-page .right .biography .bg-con .hide-more-button {
+    width: 100%;
+    height: 40px;
+    background: rgb(2, 0, 36);
+    background: linear-gradient(90deg, rgba(2, 0, 36, 0) 0%, rgba(9, 9, 121, 0) 39%, rgba(26, 25, 30, 0.467) 61%, rgba(26, 25, 30, 1) 100%);
+    position: absolute;
+    bottom: -5px;
+    transition: .3s;
+}
+
+.person-page .right .biography .bg-con .show-more-button p,
+.person-page .right .biography .bg-con .hide-more-button p {
+    position: absolute;
+    right: 10px;
+    font-size: 14px;
+    color: lightcoral;
+    font-weight: 600;
+    top: 10px;
+    cursor: pointer;
+}
+
+.person-page .right .biography .bg-con .show-more-button p i,
+.person-page .right .biography .bg-con .hide-more-button p i {
+    margin-left: 10px;
+}
+
+.person-page .right .known-for {
+    margin-top: 50px;
+    transition: .3s;
+}
+
+.person-page .right .known-for .known-for-slide {
+    margin-top: 20px;
+}
+
+.swiper-pagination-progressbar-fill {
+    background-color: var(--theme-red) !important;
+}
+
+.swiper-pagination-progressbar {
+    background-color: var(--theme-light-red) !important;
+}
+
+.person-page .right .known-for .known-for-con {
+    margin-top: 20px;
+}
+
+.person-page .right .known-for .known-for-con .known-for-card {
+    width: 145px;
+}
+
+.person-page .right .known-for .known-for-con .known-for-card img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.person-page .right .known-for .known-for-con .known-for-card .name {
+    text-align: center;
+}
+
+.person-page .right .known-for .known-for-con .known-for-card .name span {
+    text-align: center;
+    color: white;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.person-page .right .acting {
+    margin-top: 50px;
+}
+
+/* Media Query Mixin'leri */
+@mixin tablet-and-up {
+    @media screen and (min-width: 769px) {
+        @content;
+    }
+}
+
+@mixin mobile-and-up {
+    @media screen and (min-width: 601px) {
+        @content;
+    }
+}
+
+@mixin tablet-and-down {
+    @media screen and (max-width: 768px) {
+        @content;
+    }
+}
+
+@mixin mobile-only {
+    @media screen and (max-width: 600px) {
+        @content;
+    }
+}
+
+/* Genel Stil Tanımları */
+.acting ul,
+.acting li {
+    display: block !important;
+    list-style: none;
+    padding: 0;
+}
+
+.acting .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 1rem;
+    padding: 3rem 0;
+}
+
+.acting .wrapper {
+    background: var(--dark-background);
+    padding: 2rem;
+    border-radius: 15px;
+    flex: 1;
+}
+
+.acting .wrapper h2 {
+    font-size: 1.4rem;
+    font-family: sans-serif;
+    color: white;
+}
+
+.acting .sessions {
+    margin-top: 2rem;
+    border-radius: 12px;
+    position: relative;
+}
+
+.acting li {
+    cursor: pointer;
+    padding-bottom: 1.5rem;
+    border-left: 1px solid lightcoral;
+    position: relative;
+    padding-left: 20px;
+    margin-left: 10px;
+
+    &:last-child {
+        border: 0px;
+        padding-bottom: 0;
+    }
+
+    &:before {
+        content: '';
+        width: 15px;
+        height: 15px;
+        background: var(--theme-red);
+        border: 1px solid var(--theme-body-color);
+        box-shadow: 3px 3px 0px var(--theme-light-red);
+        box-shadow: 3px 3px 0px var(--theme-light-red);
+        border-radius: 50%;
+        position: absolute;
+        left: -10px;
+        top: 0px;
+    }
+}
+.acting li.show-more-info .infos-con{
+    opacity: 1;
+    visibility: visible;
+    transform: scale(1);
+}
+.acting li .infos-con{
+    width: 500px;
+    height: 150px;
+    background-color: var(--theme-body-color);
+    z-index: 30;
+    border-radius: 10px;
+    box-shadow: var(--card-box-shadow);
+    position: absolute;
+    left: 25px;
+    top: -10px;
+    padding: 10px;
+    opacity: 0;
+    visibility: hidden;
+    transform: scale(0);
+    transition: .3s;
+}
+.acting li .infos-con::before{
+    content: '';
+    width: 20px;
+    height: 20px;
+    transform: rotate(45deg);
+    background-color: var(--theme-body-color);
+    position: absolute;
+    top: 10px;
+    left: -6px;
+}
+.acting li .infos-con .left{
+    width: 90px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.acting li .infos-con .left img{
+    width: 100%;
+    border-radius: 10px;
+}
+.acting li .infos-con .right{
+    width: 80%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.acting li .infos-con .right h1{
+    color: white;
+    font-size: 17px;
+}
+.acting li .infos-con .right p{
+    font-size: 14px;
+    font-weight: 500;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: normal;
+}
+.acting li .infos-con .right .right-inside button{
+    background-color: var(--dark-background);
+    padding: 3px;
+    border-radius: 10px;
+    margin-top: 15px;
+    transition: .3s;
+    cursor: pointer;
+}
+.acting li .infos-con .right .right-inside button:hover{
+    background-color: var(--theme-red);
+}
+.acting li .infos-con .right .right-inside button:hover svg{
+    fill: var(--theme-body-color);
+}
+.acting li .infos-con .right .right-inside button svg{
+    fill: var(--theme-red);
+    width: 25px;
+    height: 25px;
+    transition: .3s;
+}
+.acting .time {
+    color: white;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+
+    @include mobile-and-up {
+        font-size: .9rem;
+    }
+
+    @include mobile-only {
+        margin-bottom: .3rem;
+        font-size: 0.85rem;
+    }
+}
+
+.acting p {
+    color: var(--theme-gray);
+    font-family: sans-serif;
+    line-height: 1.5;
+    margin-top: 0.4rem;
+
+    @include mobile-only {
+        font-size: .9rem;
+    }
+}

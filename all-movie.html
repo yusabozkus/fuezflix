@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- styles -->
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <!-- favicon -->
+    <link rel="shortcut icon" href="favicon.webp" type="image/x-icon">
+    <!-- icons cdn -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Fuezflix - Ana Sayfa</title>
+</head>
+
+<body onload="loadAllMovie()">
+    <!-- page loader-->
+    <div id="pageLoader" class="page-loader">
+        <div class="loader">
+            <svg viewBox="0 0 80 80">
+                <circle id="test" cx="40" cy="40" r="32"></circle>
+            </svg>
+        </div>
+
+        <div class="loader triangle">
+            <svg viewBox="0 0 86 80">
+                <polygon points="43 8 79 72 7 72"></polygon>
+            </svg>
+        </div>
+
+        <div class="loader">
+            <svg viewBox="0 0 80 80">
+                <rect x="8" y="8" width="64" height="64"></rect>
+            </svg>
+        </div>
+    </div>
+    <!-- site -->
+    <div class="site">
+        <div class="site-inside">
+            <!-- MOVIE CONUNT -->
+            <div class="movie-count">
+                <h1><span id="allMovieSpan">0</span> Filmden <span id="showingMovieSpan">0</span> tanesi gösteriliyor</h1>
+            </div>
+
+            <!-- header -->
+            <header class="" id="header">
+                <div class="header-left">
+                    <div class="logo">
+                        <img src="logo.png" alt="">
+                    </div>
+                </div>
+                <div class="header-center">
+                    <ul>
+                        <li class=""><a href="home.html">Ana Sayfa</a>
+                            <div class="bottom-overlay"></div>
+                        </li>
+                        <li class="active-nav"><a href="all-movie.html">Filmler</a>
+                            <div class="bottom-overlay"></div>
+                        </li>
+                        <li><a href="#">Diziler</a>
+                            <div class="bottom-overlay"></div>
+                        </li>
+                        <li><a href="#">Listem</a>
+                            <div class="bottom-overlay"></div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="header-right">
+                    <ul>
+                        <li>
+                            <input onkeydown="searchInput(this)" type="search" placeholder="Search...">
+                        </li>
+                        <li id="searchButton">
+                            <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg">
+                                <g id="SVGRepo_bgCarrier"></g>
+                                <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                                <g id="SVGRepo_iconCarrier">
+                                    <path
+                                        d="m795.904 750.72 124.992 124.928a32 32 0 0 1-45.248 45.248L750.656 795.904a416 416 0 1 1 45.248-45.248zM480 832a352 352 0 1 0 0-704 352 352 0 0 0 0 704z">
+                                    </path>
+                                </g>
+                            </svg>
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                                <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                                <g id="SVGRepo_iconCarrier">
+                                    <path
+                                        d="M13.9998 21H9.99977M17.9998 8C17.9998 6.4087 17.3676 4.88258 16.2424 3.75736C15.1172 2.63214 13.5911 2 11.9998 2C10.4085 2 8.88235 2.63214 7.75713 3.75736C6.63192 4.88258 5.99977 6.4087 5.99977 8C5.99977 11.0902 5.22024 13.206 4.34944 14.6054C3.6149 15.7859 3.24763 16.3761 3.2611 16.5408C3.27601 16.7231 3.31463 16.7926 3.46155 16.9016C3.59423 17 4.19237 17 5.38863 17H18.6109C19.8072 17 20.4053 17 20.538 16.9016C20.6849 16.7926 20.7235 16.7231 20.7384 16.5408C20.7519 16.3761 20.3846 15.7859 19.6501 14.6054C18.7793 13.206 17.9998 11.0902 17.9998 8Z"
+                                        stroke-linecap="round" stroke-linejoin="round"></path>
+                                </g>
+                            </svg>
+                        </li>
+                        <li>
+                            <img id="headerUserProfileImage" alt="">
+                            <div class="profile-div">
+                                <div class="profile-card-inner">
+                                    <img id="headerUserBigProfileImage" src="" alt="">
+                                    <h1 id="headerUserName"></h1>
+                                    <p id="headerUserEmail"></p>
+                                    <div class="buttons">
+                                        <button>Profili Düzenle</button>
+                                        <button onclick="logOutUserAccount()">Çıkış Yap</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </header>
+
+            <!-- site center -->
+            <div class="site-center all-movie-page">
+                <div class="movie-content">
+                    <div class="title">
+                        <h1>Tüm Filmler</h1>
+                    </div>
+                    <div id="allMovieCon" class="movie-container">
+                    </div>
+                    <div class="load-more-card">
+                        <button onclick="loadAllMovieCard()">Daha Fazla</button>
+                    </div>
+                </div>
+                <div style="width: 100%; height: 30px; margin-top: 100px;" class="test">
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- scripts -->
+    <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-auth.js"></script>
+
+    <script src="assets/js/firebase.js"></script>
+    <script src="assets/js/app.js"></script>
+</body>
+
+</html>
