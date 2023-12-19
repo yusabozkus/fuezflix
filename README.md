@@ -1,6 +1,6 @@
 # FuezFlix
 
-FuezFlix, kullanıcı kaydı ve girişi, TMDB API kullanarak geniş bir film veritabanı, Firebase veritabanı entegrasyonu ve şık bir tasarıma sahip bir film uygulamasıdır.
+FuezFlix, kullanıcı kaydı ve girişi, TMDB API kullanarak geniş bir film veritabanı, Firebase veritabanı entegrasyonu, şık tasarıma sahip bir film uygulaması ve ayrıca Python ile yazılmış bir bot içerir, bu bot TMDB'den film verilerini çeker ve veritabanına yazar.
 
 ## Tanıtım
 
@@ -12,6 +12,7 @@ FuezFlix, film severlere geniş bir film koleksiyonuna erişim sağlar. Kullanı
 - TMDB API kullanarak 6000'den fazla film verisi
 - Firebase veritabanı entegrasyonu
 - Şık tasarım ve kullanıcı arayüzü
+- Python botu ile film verilerini çekme ve veritabanına yazma
 
 ## Teknolojiler
 
@@ -19,6 +20,7 @@ FuezFlix, film severlere geniş bir film koleksiyonuna erişim sağlar. Kullanı
 - CSS
 - JavaScript
 - Firebase
+- Python
 
 ## Kurulum
 
@@ -28,6 +30,14 @@ Projeyi yerel makinenizde çalıştırmak için şu adımları izleyin:
 2. Gerekli bağımlılıkları yükleyin: `npm install` veya `yarn install`
 3. Firebase konfigürasyon dosyasını ekleyin: `src/firebaseConfig.js` (örnek dosya: `src/firebaseConfig.example.js`)
 4. Projeyi başlatın: `npm start` veya `yarn start`
+
+## Python Bot
+
+Film verilerini çekmek ve veritabanına yazmak için Python botunu aşağıdaki adımları kullanarak çalıştırabilirsiniz:
+
+1. Python botunun bulunduğu klasöre gidin: `cd Fuez Movie`
+2. Gerekli Python bağımlılıklarını yükleyin: `pip install selenium firebase-admin`
+3. Botu çalıştırın: `python getMovieSource.py`
 
 ## Kullanım
 
